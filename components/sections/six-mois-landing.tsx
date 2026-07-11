@@ -186,16 +186,6 @@ export function SixMoisLanding() {
         >
           إشترك الآن
         </a>
-        <div className="relative mt-2 w-full max-w-xl px-2 pb-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`${A}/lougha-waves-hq.webp`}
-            alt="LOUGHA PLUS"
-            className="mx-auto block h-auto w-full max-w-lg object-contain drop-shadow-lg"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
       </section>
 
       {/* Offer banner */}
