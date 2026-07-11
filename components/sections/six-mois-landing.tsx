@@ -186,6 +186,10 @@ export function SixMoisLanding() {
         >
           إشترك الآن
         </a>
+        <div className="relative w-full max-w-lg translate-y-2.5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`${A}/hero-model.v2.webp`} alt="LOUGHA PLUS" className="w-full" id="hero-model" />
+        </div>
       </section>
 
       {/* Offer banner */}
