@@ -158,7 +158,7 @@ export function SixMoisLanding() {
       {/* Header — LOUGHA PLUS */}
       <header className="flex justify-center bg-[#000000] py-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/lougha-plus-logo.png" alt="LOUGHA PLUS" className="h-10 w-auto object-contain md:h-12" />
+        <img src="/lougha-plus-logo.png" alt="LOUGHA PLUS — language courses" className="h-12 w-auto max-w-[240px] object-contain md:h-14 md:max-w-[280px]" />
       </header>
 
       {/* Hero */}
