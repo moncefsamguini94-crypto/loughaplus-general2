@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 200 100% 99%;
+    --foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 95% 58%;
+    --brand-900: 243 61% 15%;
+    --brand-700: 199 95% 58%;
+    --brand-500: 199 95% 58%;
+    --brand-300: 199 90% 75%;
+    --brand-100: 210 40% 98%;
+    --action-600: 95 63% 54%;
+    --action-500: 95 63% 48%;
+    --action-100: 95 63% 92%;
+    --whatsapp: 142 70% 49%;
+    --success: 142 71% 45%;
+    --warning: 45 100% 51%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --radius: 12px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#FCFEFF] text-foreground antialiased;
+    font-family: var(--font-cairo), "Noto Kufi Arabic", sans-serif;
+  }
+}
