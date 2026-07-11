@@ -271,9 +271,10 @@ export function SixMoisLanding() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`${A}/forase_why_us.v2.webp`}
-            alt="برامج خاصة للتعلم"
+            alt="لماذا نحن؟"
             className="mx-auto w-48"
           />
+          <p className="mt-4 text-2xl font-black">لماذا نحن؟</p>
         </div>
       </section>
 
