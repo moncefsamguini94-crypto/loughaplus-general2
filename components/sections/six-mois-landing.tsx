@@ -77,39 +77,43 @@ function RegisterForm({ id }: { id: string }) {
 
   if (status === "success") {
     return (
-      <div id={id} className="m-4 rounded-xl bg-white p-8 text-center shadow-lg">
-        <p className="text-xl font-black text-[#000000]">تم التسجيل بنجاح ✅</p>
+      <div id={id} className="mx-4 my-6 rounded-2xl bg-white p-8 text-center shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+        <p className="text-xl font-black text-[#001A57]">تم التسجيل بنجاح ✅</p>
         <p className="mt-2 text-gray-600">غادي نتواصلو معاك قريب لتحديد موعد الاختبار.</p>
       </div>
     );
   }
 
   return (
-    <div id={id} className="m-4 overflow-hidden rounded-xl bg-white text-center shadow-lg">
-      <div
-        className="bg-[#0B1D6B] px-6 py-6 text-xl font-black leading-relaxed text-white"
-        style={{ clipPath: "ellipse(100% 150% at 50% -50%)" }}
-      >
-        إحجز موعدك الآن
-        <br />
-        لإختبار تحديد المستوى
+    <div id={id} className="mx-4 my-6 overflow-hidden rounded-2xl bg-white text-center shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
+      {/* Navy curved header — matches mockup */}
+      <div className="relative bg-[#001A57] px-6 pb-10 pt-7 text-lg font-black leading-relaxed text-white sm:text-xl">
+        إحجز موعدك الآن لإختبار تحديد المستوى
+        <svg
+          className="pointer-events-none absolute inset-x-0 -bottom-px h-6 w-full text-white"
+          viewBox="0 0 400 24"
+          preserveAspectRatio="none"
+          aria-hidden
+        >
+          <path d="M0 0 Q200 24 400 0 L400 24 L0 24 Z" fill="currentColor" />
+        </svg>
       </div>
-      <form onSubmit={onSubmit} className="space-y-2 p-4" noValidate>
+      <form onSubmit={onSubmit} className="space-y-3 px-5 pb-5 pt-2" noValidate>
         <input
-          className="mb-1 w-full rounded border-0 bg-gray-100 px-3 py-3 font-bold outline-none focus:ring-2 focus:ring-blue-100"
+          className="w-full rounded-xl border-0 bg-[#F1F3F5] px-4 py-3.5 text-right font-bold text-gray-800 placeholder:font-semibold placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#001A57]/25"
           placeholder="الاسم الكامل — Full name"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
         />
         <input
-          className="mb-1 w-full rounded border-0 bg-gray-100 px-3 py-3 font-bold outline-none focus:ring-2 focus:ring-blue-100"
+          className="w-full rounded-xl border-0 bg-[#F1F3F5] px-4 py-3.5 text-right font-bold text-gray-800 placeholder:font-semibold placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#001A57]/25"
           placeholder="رقم الهاتف — Phone number"
           inputMode="numeric"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
         <input
-          className="mb-1 w-full rounded border-0 bg-gray-100 px-3 py-3 font-bold outline-none focus:ring-2 focus:ring-blue-100"
+          className="w-full rounded-xl border-0 bg-[#F1F3F5] px-4 py-3.5 text-right font-bold text-gray-800 placeholder:font-semibold placeholder:text-gray-400 outline-none focus:ring-2 focus:ring-[#001A57]/25"
           placeholder="العمر — Age"
           inputMode="numeric"
           value={age}
@@ -119,7 +123,7 @@ function RegisterForm({ id }: { id: string }) {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="mt-2 w-full rounded-lg bg-[#0B1D6B] px-14 py-4 text-xl font-black text-white shadow-lg disabled:opacity-70"
+          className="mt-1 w-full rounded-xl bg-[#001A57] px-14 py-4 text-xl font-black text-white shadow-md transition hover:bg-[#002266] disabled:opacity-70"
         >
           {status === "loading" ? (
             <span className="inline-flex items-center gap-2">
@@ -133,7 +137,6 @@ function RegisterForm({ id }: { id: string }) {
     </div>
   );
 }
-
 function PriceBeside() {
   return (
     <div className="relative mx-4 mb-2 mt-8 grid grid-cols-5 items-center px-1">
@@ -261,13 +264,16 @@ export function SixMoisLanding() {
       <PriceBeside />
       <RegisterForm id="form" />
 
-      {/* Why us intro */}
+      {/* Why us intro — matches mockup */}
       <section className="relative px-4 py-10 text-center">
-        <h2 className="text-2xl font-black">نقدم لكم برامج وأجواء خاصة للتعلم</h2>
-        <div className="relative mx-auto mt-8 max-w-sm rounded-xl bg-white p-8 shadow-lg">
+        <h2 className="text-2xl font-black leading-relaxed">نقدم لكم برامج وأجواء خاصة للتعلم</h2>
+        <div className="relative mx-auto mt-8 max-w-sm rounded-2xl bg-white p-6 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${A}/forase_why_us.v2.webp`} alt="لماذا نحن" className="mx-auto w-40" />
-          <p className="mt-4 text-2xl font-black">لماذا نحن ؟ 🤔</p>
+          <img
+            src={`${A}/forase_why_us.v2.webp`}
+            alt="برامج خاصة للتعلم"
+            className="mx-auto w-48"
+          />
         </div>
       </section>
 
