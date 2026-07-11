@@ -156,12 +156,12 @@ export function SixMoisLanding() {
   return (
     <div className="min-h-screen bg-[#F5F6FB] font-[family-name:var(--font-cairo)] text-[#111]" dir="rtl">
             {/* Header — full LOUGHA PLUS banner */}
-      <header className="sticky top-0 z-40 w-full bg-black">
+      <header className="sticky top-0 z-40 w-full bg-[#001A57]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/lougha-plus-header-banner.png"
-          alt="LOUGHA PLUS — language courses"
-          className="mx-auto block h-auto w-full max-h-[100px] object-contain object-center sm:max-h-[120px]"
+          src="/lougha-plus-navy-banner.png"
+          alt="LOUGHA PLUS +"
+          className="mx-auto block h-auto w-full max-h-[110px] object-contain object-center sm:max-h-[140px]"
           loading="eager"
           decoding="async"
         />
@@ -186,6 +186,16 @@ export function SixMoisLanding() {
         >
           إشترك الآن
         </a>
+        <div className="relative mt-2 w-full max-w-xl px-2 pb-4">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${A}/lougha-waves-hq.webp`}
+            alt="LOUGHA PLUS"
+            className="mx-auto block h-auto w-full max-w-lg object-contain drop-shadow-lg"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
       </section>
 
       {/* Offer banner */}
