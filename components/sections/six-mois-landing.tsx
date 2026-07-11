@@ -155,10 +155,16 @@ function PriceBeside() {
 export function SixMoisLanding() {
   return (
     <div className="min-h-screen bg-[#F5F6FB] font-[family-name:var(--font-cairo)] text-[#111]" dir="rtl">
-      {/* Header — LOUGHA PLUS */}
-      <header className="flex justify-center bg-[#000000] py-3">
+            {/* Header — full LOUGHA PLUS banner */}
+      <header className="sticky top-0 z-40 w-full bg-black">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/lougha-plus-logo.png" alt="LOUGHA PLUS — language courses" className="h-12 w-auto max-w-[240px] object-contain md:h-14 md:max-w-[280px]" />
+        <img
+          src="/lougha-plus-header-banner.png"
+          alt="LOUGHA PLUS — language courses"
+          className="mx-auto block h-auto w-full max-h-[100px] object-contain object-center sm:max-h-[120px]"
+          loading="eager"
+          decoding="async"
+        />
       </header>
 
       {/* Hero */}
