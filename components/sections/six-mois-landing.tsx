@@ -253,19 +253,29 @@ export function SixMoisLanding() {
       </header>
 
       {/* Hero */}
-      <section className="flex flex-col items-center overflow-hidden bg-gradient-to-b from-transparent to-[rgba(11,29,107,0.18)]">
-        <h1 className="mt-8 mb-8 px-4 text-center text-3xl font-black leading-tight">
+      <section className="hero-stage relative flex flex-col items-center overflow-hidden">
+        {/* Soft stage wash — idea 1 */}
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(245,246,251,0)_0%,rgba(11,29,107,0.06)_42%,rgba(11,29,107,0.16)_100%)]"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-[radial-gradient(ellipse_at_50%_100%,rgba(11,29,107,0.22),transparent_70%)]"
+          aria-hidden
+        />
+
+        <h1 className="relative z-10 mt-8 mb-8 px-4 text-center text-3xl font-black leading-tight">
           الإنجليزية مفتاح الفرص ديالك
           <br />
           و 6 أشهر كافية باش تبدّل المستوى
         </h1>
-        <p className="mb-4 px-4 text-center text-lg leading-7 text-gray-700">
+        <p className="relative z-10 mb-4 px-4 text-center text-lg leading-7 text-gray-700">
           مع LOUGHA PLUS كتقرا أونلاين مع أساتذة معتمدين من أمريكا وبريطانيا، فجوّ عملي كيخلي التواصل والنطق أولوية.
         </p>
-        <p className="mb-2 px-4 text-center text-base leading-6 text-gray-400">
+        <p className="relative z-10 mb-2 px-4 text-center text-base leading-6 text-gray-400">
           استماع، تحدث، قراءة، كتابة، قواعد، نطق، ومفردات — برنامج واضح يوم بيوم حتى توصل للنتيجة.
         </p>
-        <div className="cta-hero-wrap relative my-6 inline-flex">
+        <div className="cta-hero-wrap relative z-10 my-6 inline-flex">
           <span className="cta-hero-badge" aria-hidden>
             -50%
           </span>
@@ -277,18 +287,35 @@ export function SixMoisLanding() {
           </a>
         </div>
 
-        {/* Hero portrait — centered stable 430×460 cutout */}
-        <div className="hero-portrait relative mx-auto flex w-full max-w-[430px] items-end justify-center">
+        {/* Portrait: Soft Cutout + Pedestal Disc (1 & 6) */}
+        <div className="hero-portrait relative z-10 mx-auto flex h-[480px] w-full max-w-[430px] items-end justify-center">
+          {/* Ambient soft glow behind subject */}
+          <div
+            className="pointer-events-none absolute bottom-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(201,162,39,0.18),transparent_68%)] blur-2xl"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute bottom-16 left-1/2 h-72 w-[78%] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(11,29,107,0.2),transparent_72%)] blur-xl"
+            aria-hidden
+          />
+
+          {/* Pedestal disc — idea 6 */}
+          <div className="hero-pedestal pointer-events-none absolute bottom-3 left-1/2 z-[5] w-[72%] -translate-x-1/2" aria-hidden>
+            <div className="hero-pedestal__ring mx-auto h-5 w-full rounded-[100%]" />
+            <div className="hero-pedestal__core mx-auto -mt-3 h-3.5 w-[88%] rounded-[100%]" />
+            <div className="hero-pedestal__shadow mx-auto -mt-1 h-6 w-[92%] rounded-[100%] blur-md" />
+          </div>
+
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${A}/hero-model.v2.png?v=nobg3`}
+            src={`${A}/hero-model.v2.png?v=stage16`}
             alt="LOUGHA PLUS"
             id="hero-model"
             width={430}
             height={460}
             decoding="async"
             fetchPriority="high"
-            className="relative z-10 mx-auto block h-[460px] w-[430px] max-w-full select-none object-contain object-bottom"
+            className="relative z-10 mx-auto mb-6 block h-[460px] w-[430px] max-w-full select-none object-contain object-bottom drop-shadow-[0_28px_40px_rgba(11,29,107,0.18)]"
             draggable={false}
           />
         </div>
@@ -539,6 +566,16 @@ export function SixMoisLanding() {
         }
         .hero-portrait {
           margin-inline: auto;
+        }
+        .hero-pedestal__ring {
+          background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.55) 0%, rgba(11, 29, 107, 0.35) 45%, rgba(11, 29, 107, 0.08) 75%, transparent 100%);
+          box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.22);
+        }
+        .hero-pedestal__core {
+          background: radial-gradient(ellipse at center, rgba(11, 29, 107, 0.42) 0%, rgba(11, 29, 107, 0.18) 55%, transparent 100%);
+        }
+        .hero-pedestal__shadow {
+          background: radial-gradient(ellipse at center, rgba(11, 29, 107, 0.28) 0%, transparent 70%);
         }
         @media (prefers-reduced-motion: reduce) {
           .cta-hero,
