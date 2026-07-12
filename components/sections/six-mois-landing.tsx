@@ -68,13 +68,13 @@ function ProgramIcon({ Icon, badge }: { Icon: LucideIcon; badge?: string }) {
 
 /** Premium Lucide icons — same card shell, icons only replaced */
 const whyItems: { text: string; Icon: LucideIcon }[] = [
-  { text: "أول معهد يركز على التواصل والنطق بـ80% من برنامجه", Icon: MessagesSquare },
-  { text: "أول معهد في العالم العربي يمتلك 7 نوادي للتواصل المباشر", Icon: Bot },
-  { text: "أول معهد يدرس على حسب الهدف والعمر والوقت المناسب للمتعلم", Icon: Target },
-  { text: "لدينا فريق خاص لمواكبة المتعلمين على الإلتزام وحضور حصصهم في الوقت", Icon: ClipboardCheck },
-  { text: "لدينا فريق من أساتذة جامعيين أمريكيين لمواكبة منهجية التدريس عن بعد", Icon: BookOpen },
-  { text: "لدينا 100 أستاذ من مختلف أنحاء العالم", Icon: AudioLines },
-  { text: "لدينا إمكانيات التدريس عن بعد بأحدث الطرق والأساليب", Icon: Award },
+  { text: "أول معهد كي ركّز على التواصل والنطق بـ80% من البرنامج", Icon: MessagesSquare },
+  { text: "أول معهد فالعالم العربي عندو 7 نوادي للتواصل المباشر", Icon: Bot },
+  { text: "كنقراو حسب الهدف، العمر، والوقت المناسب ليك", Icon: Target },
+  { text: "فريق خاص كيواكب الالتزام وحضور الحصص فالوقت", Icon: ClipboardCheck },
+  { text: "أساتذة جامعيين أمريكيين كيضمنو منهجية التدريس عن بعد", Icon: BookOpen },
+  { text: "أكثر من 100 أستاذ من مختلف أنحاء العالم", Icon: AudioLines },
+  { text: "إمكانيات تدريس عن بعد بأحدث الطرق والأساليب", Icon: Award },
 ];
 
 function RegisterForm({ id }: { id: string }) {
@@ -267,12 +267,17 @@ export function SixMoisLanding() {
         <p className="mb-2 px-4 text-center text-base leading-6 text-gray-400">
           استماع، تحدث، قراءة، كتابة، قواعد، نطق، ومفردات — برنامج واضح يوم بيوم حتى توصل للنتيجة.
         </p>
-        <a
-          href="#form"
-          className="cta-hero my-6 rounded-lg bg-[#0B1D6B] px-14 py-4 text-xl font-black text-white shadow-lg"
-        >
-          احجز بلاصتك دابا
-        </a>
+        <div className="cta-hero-wrap relative my-6 inline-flex">
+          <span className="cta-hero-badge" aria-hidden>
+            -50%
+          </span>
+          <a
+            href="#form"
+            className="cta-hero rounded-lg bg-[#0B1D6B] px-14 py-4 text-xl font-black text-white shadow-lg"
+          >
+            إشترك الآن
+          </a>
+        </div>
         <div className="relative w-full max-w-lg translate-y-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={`${A}/hero-model.v2.webp`} alt="LOUGHA PLUS" className="w-full" id="hero-model" />
@@ -487,12 +492,44 @@ export function SixMoisLanding() {
           animation: cta-soft-pulse 2.8s ease-in-out infinite;
           will-change: transform;
         }
+        .cta-hero-wrap {
+          isolation: isolate;
+        }
+        .cta-hero-badge {
+          position: absolute;
+          top: -0.65rem;
+          left: -0.35rem;
+          z-index: 2;
+          min-width: 3.1rem;
+          padding: 0.28rem 0.55rem;
+          border-radius: 999px;
+          font-size: 0.78rem;
+          font-weight: 900;
+          line-height: 1;
+          color: #fff;
+          letter-spacing: 0.02em;
+          background: linear-gradient(
+            105deg,
+            #c40000 0%,
+            #ff2a2a 32%,
+            #ffffff 50%,
+            #ff2a2a 68%,
+            #c40000 100%
+          );
+          box-shadow: 0 6px 14px rgba(229, 0, 0, 0.35);
+          text-shadow:
+            0 0 2px #8f0000,
+            0 1px 2px rgba(120, 0, 0, 0.55);
+          transform: rotate(-8deg);
+          animation: offer-badge-pulse 2s ease-in-out infinite;
+        }
         .cta-sticky {
           animation: cta-sticky-soft 2.8s ease-in-out infinite;
           will-change: transform;
         }
         @media (prefers-reduced-motion: reduce) {
           .cta-hero,
+          .cta-hero-badge,
           .cta-sticky,
           .offer-card,
           .offer-sash,
