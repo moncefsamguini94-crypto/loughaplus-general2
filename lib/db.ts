@@ -59,13 +59,20 @@ export async function ensureSchema() {
       created_at    TIMESTAMPTZ NOT NULL DEFAULT now()
     );
   `);
+  await query(`ALTER TABLE leads ADD COLUMN IF NOT EXISTS landing TEXT`);
+  await query(`ALTER TABLE leads ADD COLUMN IF NOT EXISTS notes TEXT`);
+  await query(`ALTER TABLE leads ADD COLUMN IF NOT EXISTS updated_at TIMESTAMPTZ NOT NULL DEFAULT now()`);
   schemaReady = true;
 }
+
+/** Landing source for this app (admin dashboard segmentation). */
+export const LANDING_ID = "general-2" as const;
 
 export interface NewLead {
   fullName: string;
   phone: string;
   level: string;
+  landing?: string;
   submittedAt?: string;
   attribution?: Record<string, unknown>;
   ip?: string | null;
@@ -79,8 +86,8 @@ export async function insertLead(lead: NewLead) {
   await query(
     `INSERT INTO leads
        (full_name, phone, level, utm_source, utm_medium, utm_campaign,
-        utm_content, utm_term, angle, submitted_at, ip, user_agent)
-     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)`,
+        utm_content, utm_term, angle, landing, submitted_at, ip, user_agent)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)`,
     [
       lead.fullName,
       lead.phone,
@@ -91,6 +98,7 @@ export async function insertLead(lead: NewLead) {
       str(a.utm_content),
       str(a.utm_term),
       str(a.angle),
+      lead.landing ?? LANDING_ID,
       lead.submittedAt ?? null,
       lead.ip ?? null,
       lead.userAgent ?? null,
