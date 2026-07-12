@@ -232,7 +232,7 @@ export function SixMoisLanding() {
               عرض خاص
             </p>
             <p className="mt-2 text-xl font-bold text-gray-700">6 أشهر</p>
-            <p className="mt-1 text-3xl font-black text-[#C9A227]">1500 درهم</p>
+            <p className="mt-1 text-3xl font-black text-[#00e09b]">1500 درهم</p>
             <p className="mt-1 text-xl font-bold text-[#e50000] line-through">عوض 3500 درهم</p>
           </div>
         </div>
