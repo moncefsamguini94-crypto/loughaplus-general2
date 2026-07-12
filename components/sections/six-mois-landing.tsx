@@ -277,20 +277,19 @@ export function SixMoisLanding() {
           </a>
         </div>
 
-        {/* Hero portrait — centered 430×460 cutout */}
-        <div className="hero-portrait relative mx-auto flex w-full max-w-[430px] justify-center px-0">
-          <div
-            className="pointer-events-none absolute inset-x-8 bottom-6 h-16 rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(11,29,107,0.28),transparent_70%)] blur-md"
-            aria-hidden
-          />
+        {/* Hero portrait — centered stable 430×460 cutout */}
+        <div className="hero-portrait relative mx-auto flex w-full max-w-[430px] items-end justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${A}/hero-model.v2.png?v=nobg`}
+            src={`${A}/hero-model.v2.png?v=kommodo2`}
             alt="LOUGHA PLUS"
             id="hero-model"
             width={430}
             height={460}
-            className="hero-portrait__img relative z-10 mx-auto block h-[460px] w-[430px] max-w-full object-contain object-bottom drop-shadow-[0_18px_36px_rgba(11,29,107,0.22)]"
+            decoding="async"
+            fetchPriority="high"
+            className="relative z-10 mx-auto block h-[460px] w-[430px] max-w-full select-none object-contain object-bottom"
+            draggable={false}
           />
         </div>
       </section>
@@ -538,16 +537,8 @@ export function SixMoisLanding() {
           animation: cta-sticky-soft 2.8s ease-in-out infinite;
           will-change: transform;
         }
-        @keyframes hero-portrait-float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
-        }
         .hero-portrait {
           margin-inline: auto;
-        }
-        .hero-portrait__img {
-          animation: hero-portrait-float 5s ease-in-out infinite;
-          will-change: transform;
         }
         @media (prefers-reduced-motion: reduce) {
           .cta-hero,
@@ -555,8 +546,7 @@ export function SixMoisLanding() {
           .cta-sticky,
           .offer-card,
           .offer-sash,
-          .offer-card__price,
-          .hero-portrait__img {
+          .offer-card__price {
             animation: none !important;
           }
         }
