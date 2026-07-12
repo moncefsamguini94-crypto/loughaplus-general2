@@ -239,7 +239,7 @@ export function SixMoisLanding() {
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${A}/program_2x.dbc1a19b.webp`}
+          src={`${A}/program_2x.dbc1a19b.webp?v=books`}
           alt="برنامج LOUGHA PLUS"
           className="relative z-10 mx-auto mt-10 w-48"
         />
