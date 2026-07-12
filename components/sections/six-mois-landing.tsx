@@ -203,6 +203,39 @@ function PriceBeside() {
   );
 }
 
+/** Dynamic offer card — animated -50% ambiance, matches LOUGHA PLUS palette */
+function OfferSpecialCard({ navy }: { navy: string }) {
+  return (
+    <div
+      className="offer-card relative z-10 mx-auto w-full max-w-[430px] overflow-hidden rounded-2xl bg-white text-center shadow-[0_12px_40px_rgba(11,29,107,0.14)]"
+      style={{ ["--offer-navy" as string]: navy }}
+    >
+      <div className="offer-card__glow pointer-events-none absolute inset-0" aria-hidden />
+      <div className="offer-card__shimmer pointer-events-none absolute inset-0" aria-hidden />
+
+      {/* -50% ribbon */}
+      <div className="offer-badge absolute -end-10 -top-10 z-20 flex h-28 w-28 rotate-45 items-end justify-center pb-3">
+        <div className="offer-badge__inner flex flex-col items-center leading-none text-white">
+          <span className="text-[11px] font-black tracking-wide">OFF</span>
+          <span className="text-xl font-black">-50%</span>
+        </div>
+      </div>
+
+      <div className="relative z-10 px-6 pb-7 pt-8">
+        <p
+          className="offer-card__title text-2xl font-black underline decoration-4 underline-offset-8"
+          style={{ color: navy, textDecorationColor: navy }}
+        >
+          عرض خاص
+        </p>
+        <p className="mt-4 text-xl font-bold text-gray-700">6 أشهر</p>
+        <p className="offer-card__price mt-2 text-4xl font-black text-[#00e09b]">1500 درهم</p>
+        <p className="mt-2 text-lg font-bold text-[#e50000] line-through decoration-2">عوض 3500 درهم</p>
+      </div>
+    </div>
+  );
+}
+
 export function SixMoisLanding() {
   return (
     <div className="min-h-screen bg-[#F5F6FB] font-[family-name:var(--font-cairo)] text-[#111]" dir="rtl">
@@ -257,14 +290,7 @@ export function SixMoisLanding() {
           <p className="relative z-10 mb-2 text-right text-xs font-bold text-gray-700">
             عرض محدود و عدد المقاعد محدودة
           </p>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`${A}/offer_special.v2.png?v=kommodo3`}
-            alt="عرض خاص — 6 أشهر — 1500 درهم عوض 3500"
-            width={1344}
-            height={638}
-            className="relative z-10 mx-auto block h-auto w-full max-w-[430px]"
-          />
+          <OfferSpecialCard navy="#0B1D6B" />
         </div>
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -364,6 +390,57 @@ export function SixMoisLanding() {
           50% { transform: translateY(-2rem); }
           75% { transform: translateY(-4rem); }
           100% { transform: translateY(-4rem); }
+        }
+        @keyframes offer-float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+        @keyframes offer-shimmer {
+          0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+          20% { opacity: 0.55; }
+          45% { opacity: 0.2; }
+          100% { transform: translateX(140%) skewX(-18deg); opacity: 0; }
+        }
+        @keyframes offer-glow {
+          0%, 100% { opacity: 0.35; }
+          50% { opacity: 0.7; }
+        }
+        @keyframes offer-badge-pulse {
+          0%, 100% { filter: brightness(1); transform: scale(1); }
+          50% { filter: brightness(1.12); transform: scale(1.04); }
+        }
+        @keyframes offer-price-pulse {
+          0%, 100% { transform: scale(1); text-shadow: 0 0 0 transparent; }
+          50% { transform: scale(1.04); text-shadow: 0 0 18px rgba(0, 224, 155, 0.45); }
+        }
+        .offer-card {
+          animation: offer-float 3.6s ease-in-out infinite;
+          border: 1px solid rgba(11, 29, 107, 0.08);
+        }
+        .offer-card__glow {
+          background:
+            radial-gradient(circle at 20% 20%, rgba(0, 224, 155, 0.16), transparent 42%),
+            radial-gradient(circle at 85% 15%, rgba(229, 0, 0, 0.14), transparent 38%),
+            radial-gradient(circle at 50% 100%, rgba(11, 29, 107, 0.08), transparent 50%);
+          animation: offer-glow 2.8s ease-in-out infinite;
+        }
+        .offer-card__shimmer {
+          background: linear-gradient(
+            100deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.55) 45%,
+            transparent 70%
+          );
+          animation: offer-shimmer 3.2s ease-in-out infinite;
+        }
+        .offer-badge {
+          background: linear-gradient(135deg, #ff2d2d 0%, #e50000 55%, #b00000 100%);
+          box-shadow: 0 6px 16px rgba(229, 0, 0, 0.35);
+          animation: offer-badge-pulse 1.8s ease-in-out infinite;
+        }
+        .offer-card__price {
+          animation: offer-price-pulse 2.2s ease-in-out infinite;
+          display: inline-block;
         }
       `}</style>
     </div>
