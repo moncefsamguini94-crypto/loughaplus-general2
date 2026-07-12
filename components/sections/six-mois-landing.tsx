@@ -209,10 +209,8 @@ function OfferSpecialCard({ navy }: { navy: string }) {
     <div className="relative z-10 mx-auto w-full max-w-[430px] pt-5">
       {/* Gift sash — sits on top border, clearly visible */}
       <div className="offer-sash absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2">
-        <div className="offer-sash__band relative flex items-center justify-center gap-2 px-8 py-2.5">
-          <span className="text-lg font-black leading-none tracking-tight">-50%</span>
-          <span className="offer-sash__sep h-4 w-px" aria-hidden />
-          <span className="text-[11px] font-bold tracking-[0.18em]">OFF</span>
+        <div className="offer-sash__band relative flex items-center justify-center px-4 py-1.5" dir="rtl" lang="ar">
+          <span className="text-sm font-black leading-none tracking-tight">خصم 50٪</span>
         </div>
       </div>
 
