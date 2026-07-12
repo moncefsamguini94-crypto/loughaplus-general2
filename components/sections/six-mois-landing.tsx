@@ -209,9 +209,9 @@ function OfferSpecialCard({ navy }: { navy: string }) {
     <div className="relative z-10 mx-auto w-full max-w-[430px] pt-5">
       {/* Gift sash — sits on top border, clearly visible */}
       <div className="offer-sash absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2">
-        <div className="offer-sash__band relative flex items-center justify-center gap-2 px-8 py-2.5 text-white">
+        <div className="offer-sash__band relative flex items-center justify-center gap-2 px-8 py-2.5">
           <span className="text-lg font-black leading-none tracking-tight">-50%</span>
-          <span className="h-4 w-px bg-white/40" aria-hidden />
+          <span className="offer-sash__sep h-4 w-px" aria-hidden />
           <span className="text-[11px] font-bold tracking-[0.18em]">OFF</span>
         </div>
       </div>
@@ -438,12 +438,28 @@ export function SixMoisLanding() {
         }
         .offer-sash {
           animation: offer-badge-pulse 2s ease-in-out infinite;
-          filter: drop-shadow(0 8px 14px rgba(11, 29, 107, 0.28));
+          filter: drop-shadow(0 8px 14px rgba(229, 0, 0, 0.28));
         }
         .offer-sash__band {
-          background: linear-gradient(90deg, #0B1D6B 0%, #16308a 45%, #C9A227 100%);
+          background: linear-gradient(
+            105deg,
+            #c40000 0%,
+            #ff2a2a 28%,
+            #ffffff 48%,
+            #ffffff 52%,
+            #ff2a2a 72%,
+            #c40000 100%
+          );
           clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0 50%);
           min-width: 148px;
+          color: #ffffff;
+          text-shadow:
+            0 0 2px #8f0000,
+            0 1px 2px rgba(120, 0, 0, 0.55),
+            0 0 8px rgba(255, 255, 255, 0.35);
+        }
+        .offer-sash__sep {
+          background: rgba(255, 255, 255, 0.7);
         }
         .offer-card__price {
           animation: offer-price-pulse 2.2s ease-in-out infinite;
