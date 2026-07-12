@@ -269,7 +269,7 @@ export function SixMoisLanding() {
         </p>
         <a
           href="#form"
-          className="my-6 rounded-lg bg-[#0B1D6B] px-14 py-4 text-xl font-black text-white shadow-lg"
+          className="cta-hero my-6 rounded-lg bg-[#0B1D6B] px-14 py-4 text-xl font-black text-white shadow-lg"
         >
           إشترك الآن
         </a>
@@ -382,9 +382,19 @@ export function SixMoisLanding() {
       </div>
       <RegisterForm id="form-bottom" />
 
-      <footer className="bg-[#EEF0F8] p-6 text-center text-sm text-gray-500">
+      <footer className="bg-[#EEF0F8] p-6 pb-28 text-center text-sm text-gray-500">
         © {new Date().getFullYear()} LOUGHA PLUS — جميع الحقوق محفوظة
       </footer>
+
+      {/* Sticky red CTA — 430px wide */}
+      <div className="cta-sticky-wrap pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2">
+        <a
+          href="#form"
+          className="cta-sticky pointer-events-auto flex h-14 w-full max-w-[430px] items-center justify-center rounded-xl bg-[#E50000] text-lg font-black text-white shadow-[0_10px_28px_rgba(229,0,0,0.35)]"
+        >
+          إشترك الآن
+        </a>
+      </div>
 
       <style jsx global>{`
         @keyframes sixmois-scroll {
@@ -464,6 +474,31 @@ export function SixMoisLanding() {
         .offer-card__price {
           animation: offer-price-pulse 2.2s ease-in-out infinite;
           display: inline-block;
+        }
+        @keyframes cta-soft-pulse {
+          0%, 100% { transform: scale(1); box-shadow: 0 10px 20px rgba(11, 29, 107, 0.28); }
+          50% { transform: scale(1.03); box-shadow: 0 12px 26px rgba(11, 29, 107, 0.4); }
+        }
+        @keyframes cta-sticky-soft {
+          0%, 100% { transform: translateY(0); box-shadow: 0 10px 28px rgba(229, 0, 0, 0.32); }
+          50% { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(229, 0, 0, 0.42); }
+        }
+        .cta-hero {
+          animation: cta-soft-pulse 2.8s ease-in-out infinite;
+          will-change: transform;
+        }
+        .cta-sticky {
+          animation: cta-sticky-soft 2.8s ease-in-out infinite;
+          will-change: transform;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .cta-hero,
+          .cta-sticky,
+          .offer-card,
+          .offer-sash,
+          .offer-card__price {
+            animation: none !important;
+          }
         }
       `}</style>
     </div>
