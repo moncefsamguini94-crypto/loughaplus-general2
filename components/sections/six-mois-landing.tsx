@@ -4,12 +4,19 @@ import { useState } from "react";
 import {
   AudioLines,
   Award,
+  BadgeCheck,
   BookOpen,
   Bot,
+  CalendarClock,
   ClipboardCheck,
+  FileText,
+  Gift,
   Loader2,
   MessagesSquare,
+  RotateCw,
+  Route,
   Target,
+  Timer,
   type LucideIcon,
 } from "lucide-react";
 import { getAttribution, track } from "@/lib/analytics";
@@ -17,18 +24,47 @@ import { normalizeMoroccanPhone, submitLead } from "@/lib/leads";
 import { ENGLISH_LEVELS } from "@/lib/content";
 
 const A = "/6mois";
-const ICON_BLUE = "#29A8FF";
+const ICON_NAVY = "#0B1D6B";
+const ICON_GOLD = "#C9A227";
+const ICON_BLUE = ICON_NAVY;
 
-const programItems = [
-  { text: "حصتين في الأسبوع", icon: `${A}/forase_session_schedule.74e10f4c.webp` },
-  { text: "برنامج لمدة 180 يومًا", icon: `${A}/forase_program_timeline.be85da43.webp` },
-  { text: "ساعة ونصف في الحصة", icon: `${A}/forase_session_duration.1a267e12.webp` },
-  { text: "خمسون ساعة إضافية مجانية في : Live Communication Club", icon: `${A}/forase_plus_50h.b5f7cb7b.webp` },
-  { text: "ثلاثون ساعة إضافية مجانية في : نادي التواصل مع الأجانب", icon: `${A}/forase_plus_30h.517e9b28.webp` },
-  { text: "سعر الاختبارات للانتقال من مستوى إلى مستوى آخر مجاني", icon: `${A}/forase_free_test.e2bdbc87.webp` },
-  { text: "خمسون ملف PDF دروس", icon: `${A}/forase_course_docs.0780c082.webp` },
-  { text: "شهادة بعد إجتياز جميع الإختبارات", icon: `${A}/forase_certification.0d5e4b0f.webp` },
-] as const;
+type ProgramItem =
+  | { text: string; Icon: LucideIcon; badge?: undefined }
+  | { text: string; Icon: LucideIcon; badge: string };
+
+const programItems: ProgramItem[] = [
+  { text: "حصتين في الأسبوع", Icon: CalendarClock },
+  { text: "برنامج لمدة 180 يومًا", Icon: Route },
+  { text: "ساعة ونصف في الحصة", Icon: Timer },
+  { text: "خمسون ساعة إضافية مجانية في : Live Communication Club", Icon: RotateCw, badge: "50" },
+  { text: "ثلاثون ساعة إضافية مجانية في : نادي التواصل مع الأجانب", Icon: RotateCw, badge: "30" },
+  { text: "سعر الاختبارات للانتقال من مستوى إلى مستوى آخر مجاني", Icon: Gift },
+  { text: "خمسون ملف PDF دروس", Icon: FileText },
+  { text: "شهادة بعد إجتياز جميع الإختبارات", Icon: BadgeCheck },
+];
+
+function ProgramIcon({ Icon, badge }: { Icon: LucideIcon; badge?: string }) {
+  return (
+    <span className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-white p-1 shadow-md">
+      {badge ? (
+        <span className="relative flex size-9 items-center justify-center">
+          <RotateCw
+            className="absolute size-9"
+            color={ICON_NAVY}
+            strokeWidth={2}
+            absoluteStrokeWidth
+            aria-hidden
+          />
+          <span className="relative text-[13px] font-black leading-none" style={{ color: ICON_GOLD }}>
+            {badge}
+          </span>
+        </span>
+      ) : (
+        <Icon className="size-7" color={ICON_NAVY} strokeWidth={2} absoluteStrokeWidth aria-hidden />
+      )}
+    </span>
+  );
+}
 
 /** Premium Lucide icons — same card shell, icons only replaced */
 const whyItems: { text: string; Icon: LucideIcon }[] = [
@@ -258,9 +294,8 @@ export function SixMoisLanding() {
         </div>
         <ul className="relative z-10 mx-auto mt-6 max-w-lg">
           {programItems.map((item) => (
-            <li key={item.text} className="m-2 flex flex-row-reverse items-center gap-3 text-right font-bold">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={item.icon} alt="" className="size-14 shrink-0 rounded-xl bg-white p-1 shadow-md" />
+            <li key={item.text} className="m-2 flex items-center gap-3 text-right font-bold">
+              <ProgramIcon Icon={item.Icon} badge={item.badge} />
               <span className="flex-1 text-[15px] leading-relaxed">{item.text}</span>
             </li>
           ))}
