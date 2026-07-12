@@ -1,12 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { Loader2 } from "lucide-react";
+import {
+  AudioLines,
+  Award,
+  BookOpen,
+  Bot,
+  ClipboardCheck,
+  Loader2,
+  MessagesSquare,
+  Target,
+  type LucideIcon,
+} from "lucide-react";
 import { getAttribution, track } from "@/lib/analytics";
 import { normalizeMoroccanPhone, submitLead } from "@/lib/leads";
 import { ENGLISH_LEVELS } from "@/lib/content";
 
 const A = "/6mois";
+const ICON_BLUE = "#29A8FF";
 
 const programItems = [
   { text: "حصتين في الأسبوع", icon: `${A}/forase_session_schedule.74e10f4c.webp` },
@@ -19,15 +30,16 @@ const programItems = [
   { text: "شهادة بعد إجتياز جميع الإختبارات", icon: `${A}/forase_certification.0d5e4b0f.webp` },
 ] as const;
 
-const whyItems = [
-  { text: "أول معهد يركز على التواصل والنطق بـ80% من برنامجه", icon: `${A}/forase_communication.f9f942f4.webp` },
-  { text: "أول معهد في العالم العربي يمتلك 7 نوادي للتواصل المباشر", icon: `${A}/forase_clubs.b146e601.webp` },
-  { text: "أول معهد يدرس على حسب الهدف والعمر والوقت المناسب للمتعلم", icon: `${A}/forase_flexible_env.7e570339.webp` },
-  { text: "لدينا فريق خاص لمواكبة المتعلمين على الإلتزام وحضور حصصهم في الوقت", icon: `${A}/forase_support.33964325.webp` },
-  { text: "لدينا فريق من أساتذة جامعيين أمريكيين لمواكبة منهجية التدريس عن بعد", icon: `${A}/forase_program.4a1edf9e.webp` },
-  { text: "لدينا 100 أستاذ من مختلف أنحاء العالم", icon: `${A}/forase_glob_teachers.d955122e.webp` },
-  { text: "لدينا إمكانيات التدريس عن بعد بأحدث الطرق والأساليب", icon: `${A}/forase_technologies.089099cc.webp` },
-] as const;
+/** Premium Lucide icons — same card shell, icons only replaced */
+const whyItems: { text: string; Icon: LucideIcon }[] = [
+  { text: "أول معهد يركز على التواصل والنطق بـ80% من برنامجه", Icon: MessagesSquare },
+  { text: "أول معهد في العالم العربي يمتلك 7 نوادي للتواصل المباشر", Icon: Bot },
+  { text: "أول معهد يدرس على حسب الهدف والعمر والوقت المناسب للمتعلم", Icon: Target },
+  { text: "لدينا فريق خاص لمواكبة المتعلمين على الإلتزام وحضور حصصهم في الوقت", Icon: ClipboardCheck },
+  { text: "لدينا فريق من أساتذة جامعيين أمريكيين لمواكبة منهجية التدريس عن بعد", Icon: BookOpen },
+  { text: "لدينا 100 أستاذ من مختلف أنحاء العالم", Icon: AudioLines },
+  { text: "لدينا إمكانيات التدريس عن بعد بأحدث الطرق والأساليب", Icon: Award },
+];
 
 function RegisterForm({ id }: { id: string }) {
   const [fullName, setFullName] = useState("");
@@ -289,8 +301,15 @@ export function SixMoisLanding() {
         <ul className="relative z-10 mx-auto max-w-lg">
           {whyItems.map((item) => (
             <li key={item.text} className="m-2 flex flex-row-reverse items-center gap-3 text-right font-bold">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={item.icon} alt="" className="size-14 shrink-0 rounded-xl bg-white p-1 shadow-md" />
+              <span className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-white p-1 shadow-md">
+                <item.Icon
+                  className="size-7"
+                  color={ICON_BLUE}
+                  strokeWidth={2}
+                  absoluteStrokeWidth
+                  aria-hidden
+                />
+              </span>
               <span className="flex-1 text-[15px] leading-relaxed">{item.text}</span>
             </li>
           ))}
