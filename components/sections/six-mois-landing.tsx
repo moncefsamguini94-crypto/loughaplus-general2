@@ -218,12 +218,6 @@ export function SixMoisLanding() {
         </div>
 
         <div className="relative mx-auto mt-4 max-w-md px-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`${A}/price_stack.ae33ff54.webp`}
-            alt="50%"
-            className="absolute -start-2 top-8 z-0 w-36 -translate-x-4 scale-110 md:w-44"
-          />
           <p className="relative z-10 mb-2 text-right text-xs font-bold text-gray-700">
             عرض محدود و عدد المقاعد محدودة
           </p>
