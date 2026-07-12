@@ -5,7 +5,7 @@ export function SiteHeader() {
       <img
         src="/lougha-plus-header-banner.png"
         alt="LOUGHA PLUS +"
-        className="mx-auto block h-auto w-full max-h-[110px] object-contain object-center sm:max-h-[140px]"
+        className="block h-auto w-full"
         loading="eager"
         decoding="async"
       />
