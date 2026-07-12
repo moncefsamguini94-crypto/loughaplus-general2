@@ -281,7 +281,7 @@ export function SixMoisLanding() {
         <div className="hero-portrait relative mx-auto flex w-full max-w-[430px] items-end justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${A}/hero-model.v2.png?v=kommodo2`}
+            src={`${A}/hero-model.v2.png?v=nobg3`}
             alt="LOUGHA PLUS"
             id="hero-model"
             width={430}
