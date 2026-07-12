@@ -203,34 +203,37 @@ function PriceBeside() {
   );
 }
 
-/** Dynamic offer card — animated -50% ambiance, matches LOUGHA PLUS palette */
+/** Dynamic offer card — gift sash -50% above the border */
 function OfferSpecialCard({ navy }: { navy: string }) {
   return (
-    <div
-      className="offer-card relative z-10 mx-auto w-full max-w-[430px] overflow-hidden rounded-2xl bg-white text-center shadow-[0_12px_40px_rgba(11,29,107,0.14)]"
-      style={{ ["--offer-navy" as string]: navy }}
-    >
-      <div className="offer-card__glow pointer-events-none absolute inset-0" aria-hidden />
-      <div className="offer-card__shimmer pointer-events-none absolute inset-0" aria-hidden />
-
-      {/* -50% ribbon */}
-      <div className="offer-badge absolute -end-10 -top-10 z-20 flex h-28 w-28 rotate-45 items-end justify-center pb-3">
-        <div className="offer-badge__inner flex flex-col items-center leading-none text-white">
-          <span className="text-[11px] font-black tracking-wide">OFF</span>
-          <span className="text-xl font-black">-50%</span>
+    <div className="relative z-10 mx-auto w-full max-w-[430px] pt-5">
+      {/* Gift sash — sits on top border, clearly visible */}
+      <div className="offer-sash absolute left-1/2 top-0 z-30 -translate-x-1/2 -translate-y-1/2">
+        <div className="offer-sash__band relative flex items-center justify-center gap-2 px-8 py-2.5 text-white">
+          <span className="text-lg font-black leading-none tracking-tight">-50%</span>
+          <span className="h-4 w-px bg-white/40" aria-hidden />
+          <span className="text-[11px] font-bold tracking-[0.18em]">OFF</span>
         </div>
       </div>
 
-      <div className="relative z-10 px-6 pb-7 pt-8">
-        <p
-          className="offer-card__title text-2xl font-black underline decoration-4 underline-offset-8"
-          style={{ color: navy, textDecorationColor: navy }}
-        >
-          عرض خاص
-        </p>
-        <p className="mt-4 text-xl font-bold text-gray-700">6 أشهر</p>
-        <p className="offer-card__price mt-2 text-4xl font-black text-[#00e09b]">1500 درهم</p>
-        <p className="mt-2 text-lg font-bold text-[#e50000] line-through decoration-2">عوض 3500 درهم</p>
+      <div
+        className="offer-card relative overflow-hidden rounded-2xl bg-white text-center shadow-[0_12px_40px_rgba(11,29,107,0.14)]"
+        style={{ ["--offer-navy" as string]: navy }}
+      >
+        <div className="offer-card__glow pointer-events-none absolute inset-0" aria-hidden />
+        <div className="offer-card__shimmer pointer-events-none absolute inset-0" aria-hidden />
+
+        <div className="relative z-10 px-6 pb-7 pt-10">
+          <p
+            className="offer-card__title text-2xl font-black underline decoration-4 underline-offset-8"
+            style={{ color: navy, textDecorationColor: navy }}
+          >
+            عرض خاص
+          </p>
+          <p className="mt-4 text-xl font-bold text-gray-700">6 أشهر</p>
+          <p className="offer-card__price mt-2 text-4xl font-black text-[#00e09b]">1500 درهم</p>
+          <p className="mt-2 text-lg font-bold text-[#e50000] line-through decoration-2">عوض 3500 درهم</p>
+        </div>
       </div>
     </div>
   );
@@ -406,8 +409,8 @@ export function SixMoisLanding() {
           50% { opacity: 0.7; }
         }
         @keyframes offer-badge-pulse {
-          0%, 100% { filter: brightness(1); transform: scale(1); }
-          50% { filter: brightness(1.12); transform: scale(1.04); }
+          0%, 100% { transform: translateY(0) scale(1); }
+          50% { transform: translateY(-2px) scale(1.03); }
         }
         @keyframes offer-price-pulse {
           0%, 100% { transform: scale(1); text-shadow: 0 0 0 transparent; }
@@ -420,7 +423,7 @@ export function SixMoisLanding() {
         .offer-card__glow {
           background:
             radial-gradient(circle at 20% 20%, rgba(0, 224, 155, 0.16), transparent 42%),
-            radial-gradient(circle at 85% 15%, rgba(229, 0, 0, 0.14), transparent 38%),
+            radial-gradient(circle at 85% 15%, rgba(201, 162, 39, 0.18), transparent 38%),
             radial-gradient(circle at 50% 100%, rgba(11, 29, 107, 0.08), transparent 50%);
           animation: offer-glow 2.8s ease-in-out infinite;
         }
@@ -433,10 +436,14 @@ export function SixMoisLanding() {
           );
           animation: offer-shimmer 3.2s ease-in-out infinite;
         }
-        .offer-badge {
-          background: linear-gradient(135deg, #ff2d2d 0%, #e50000 55%, #b00000 100%);
-          box-shadow: 0 6px 16px rgba(229, 0, 0, 0.35);
-          animation: offer-badge-pulse 1.8s ease-in-out infinite;
+        .offer-sash {
+          animation: offer-badge-pulse 2s ease-in-out infinite;
+          filter: drop-shadow(0 8px 14px rgba(11, 29, 107, 0.28));
+        }
+        .offer-sash__band {
+          background: linear-gradient(90deg, #0B1D6B 0%, #16308a 45%, #C9A227 100%);
+          clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0 50%);
+          min-width: 148px;
         }
         .offer-card__price {
           animation: offer-price-pulse 2.2s ease-in-out infinite;
