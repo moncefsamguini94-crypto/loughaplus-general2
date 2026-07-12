@@ -217,7 +217,7 @@ export function SixMoisLanding() {
           </div>
         </div>
 
-        <div className="relative mx-auto mt-4 max-w-md px-4">
+        <div className="relative mx-auto mt-4 w-full max-w-[430px] px-4">
           <p className="relative z-10 mb-2 text-right text-xs font-bold text-gray-700">
             عرض محدود و عدد المقاعد محدودة
           </p>
@@ -225,7 +225,9 @@ export function SixMoisLanding() {
           <img
             src={`${A}/offer_special.v2.png`}
             alt="عرض خاص — 6 أشهر — 1500 درهم عوض 3500"
-            className="relative z-10 ms-auto w-[70%] rounded-2xl shadow-xl"
+            width={430}
+            height={204}
+            className="relative z-10 mx-auto block h-auto w-[430px] max-w-full"
           />
         </div>
 
