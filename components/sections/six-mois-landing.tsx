@@ -358,11 +358,11 @@ export function SixMoisLanding() {
         />
         <ul className="relative z-10 mx-auto max-w-lg">
           {whyItems.map((item) => (
-            <li key={item.text} className="m-2 flex flex-row-reverse items-center gap-3 text-right font-bold">
+            <li key={item.text} className="m-2 flex items-center gap-3 text-right font-bold">
               <span className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-white p-1 shadow-md">
                 <item.Icon
                   className="size-7"
-                  color={ICON_BLUE}
+                  color={ICON_NAVY}
                   strokeWidth={2}
                   absoluteStrokeWidth
                   aria-hidden
