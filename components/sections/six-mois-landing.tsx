@@ -259,11 +259,11 @@ export function SixMoisLanding() {
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${A}/offer_special.v2.png`}
+            src={`${A}/offer_special.v2.png?v=kommodo2`}
             alt="عرض خاص — 6 أشهر — 1500 درهم عوض 3500"
-            width={430}
-            height={204}
-            className="relative z-10 mx-auto block h-auto w-[430px] max-w-full"
+            width={1344}
+            height={638}
+            className="relative z-10 mx-auto block h-auto w-full max-w-[430px]"
           />
         </div>
 
