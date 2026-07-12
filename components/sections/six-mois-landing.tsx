@@ -227,14 +227,12 @@ export function SixMoisLanding() {
           <p className="relative z-10 mb-2 text-right text-xs font-bold text-gray-700">
             عرض محدود و عدد المقاعد محدودة
           </p>
-          <div className="relative z-10 ms-auto w-[70%] rounded-2xl bg-white p-5 text-center shadow-xl">
-            <p className="text-2xl font-bold text-[#0B1D6B] underline decoration-[#0B1D6B] underline-offset-4">
-              عرض خاص
-            </p>
-            <p className="mt-2 text-xl font-bold text-gray-700">6 أشهر</p>
-            <p className="mt-1 text-3xl font-black text-[#00e09b]">1500 درهم</p>
-            <p className="mt-1 text-xl font-bold text-[#e50000] line-through">عوض 3500 درهم</p>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${A}/offer_special.v2.png`}
+            alt="عرض خاص — 6 أشهر — 1500 درهم عوض 3500"
+            className="relative z-10 ms-auto w-[70%] rounded-2xl shadow-xl"
+          />
         </div>
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
