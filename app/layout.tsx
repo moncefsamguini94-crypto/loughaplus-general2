@@ -21,7 +21,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.baseUrl),
   title: {
-    default: "معهد لوغة — LOUGHA PLUS — General 2",
+    default: seo.title,
     template: `%s · ${site.name}`,
   },
   description: seo.description,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     locale: site.locale,
     url: site.baseUrl,
     siteName: site.name,
-    title: "معهد لوغة — LOUGHA PLUS — General 2",
+    title: seo.title,
     description: seo.description,
   },
   robots: { index: true, follow: true },

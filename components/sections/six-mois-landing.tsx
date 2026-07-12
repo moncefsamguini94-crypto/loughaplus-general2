@@ -126,8 +126,8 @@ function RegisterForm({ id }: { id: string }) {
   if (status === "success") {
     return (
       <div id={id} className="mx-4 my-6 rounded-2xl bg-white p-8 text-center shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
-        <p className="text-xl font-black text-[#001A57]">تم التسجيل بنجاح ✅</p>
-        <p className="mt-2 text-gray-600">غادي نتواصلو معاك قريب لتحديد موعد الاختبار.</p>
+        <p className="text-xl font-black text-[#001A57]">تسجلات بنجاح ✅</p>
+        <p className="mt-2 text-gray-600">غادي نتواصلو معاك قريب باش نحدّدو موعد الاختبار.</p>
       </div>
     );
   }
@@ -136,7 +136,7 @@ function RegisterForm({ id }: { id: string }) {
     <div id={id} className="mx-4 my-6 overflow-hidden rounded-2xl bg-white text-center shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
       {/* Navy curved header — matches mockup */}
       <div className="relative bg-[#001A57] px-6 pb-10 pt-7 text-lg font-black leading-relaxed text-white sm:text-xl">
-        إحجز موعدك الآن لإختبار تحديد المستوى
+        إحجز موعدك دابا لاختبار تحديد المستوى
         <svg
           className="pointer-events-none absolute inset-x-0 -bottom-px h-6 w-full text-white"
           viewBox="0 0 400 24"
@@ -257,21 +257,21 @@ export function SixMoisLanding() {
       {/* Hero */}
       <section className="flex flex-col items-center overflow-hidden bg-gradient-to-b from-transparent to-[rgba(11,29,107,0.18)]">
         <h1 className="mt-8 mb-8 px-4 text-center text-3xl font-black leading-tight">
-          الدراسة عن بعد أسهل مما تظن
+          الإنجليزية مفتاح الفرص ديالك
           <br />
-          وأنت حاليا على المسار الصحيح
+          و 6 أشهر كافية باش تبدّل المستوى
         </h1>
         <p className="mb-4 px-4 text-center text-lg leading-7 text-gray-700">
-          مدرسين معتمدين من قبل المعاهد الأمريكية و البريطانية، مما يعني أنك ستتعلم في بيئة غنية بالثقافات و اللهجات المختلفة.
+          مع LOUGHA PLUS كتقرا أونلاين مع أساتذة معتمدين من أمريكا وبريطانيا، فجوّ عملي كيخلي التواصل والنطق أولوية.
         </p>
         <p className="mb-2 px-4 text-center text-base leading-6 text-gray-400">
-          يغطي منهجنا الفريد كل شيء من الإستماع و التحدث و القراءة والكتابة إلى القواعد وممارسة النطق وبناء المفردات والثقافة
+          استماع، تحدث، قراءة، كتابة، قواعد، نطق، ومفردات — برنامج واضح يوم بيوم حتى توصل للنتيجة.
         </p>
         <a
           href="#form"
           className="cta-hero my-6 rounded-lg bg-[#0B1D6B] px-14 py-4 text-xl font-black text-white shadow-lg"
         >
-          إشترك الآن
+          احجز بلاصتك دابا
         </a>
         <div className="relative w-full max-w-lg translate-y-2.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -283,15 +283,15 @@ export function SixMoisLanding() {
       <section className="relative overflow-hidden bg-white pb-8 pt-2 text-center">
         <div className="scroller mx-auto h-8 overflow-hidden text-lg font-bold">
           <div className="animate-[sixmois-scroll_4s_ease-in-out_infinite]">
-            <span className="block h-8 leading-8">هذا الأسبوع فقط</span>
-            <span className="block h-8 leading-8">أفضل برنامج لتعلم اللغة الإنجليزية</span>
-            <span className="block h-8 leading-8">هذا الأسبوع فقط</span>
+            <span className="block h-8 leading-8">عرض خاص LOUGHA PLUS</span>
+            <span className="block h-8 leading-8">بلايص محدودة — هذا الأسبوع فقط</span>
+            <span className="block h-8 leading-8">عرض خاص LOUGHA PLUS</span>
           </div>
         </div>
 
         <div className="relative mx-auto mt-4 w-full max-w-[430px] px-4">
           <p className="relative z-10 mb-2 text-right text-xs font-bold text-gray-700">
-            عرض محدود و عدد المقاعد محدودة
+            العرض محدود وعدد المقاعد قليل
           </p>
           <OfferSpecialCard navy="#0B1D6B" />
         </div>
@@ -319,7 +319,7 @@ export function SixMoisLanding() {
           className="pointer-events-none absolute -start-10 bottom-0 z-0 w-40 rotate-180 scale-[2] opacity-40"
         />
         <div className="relative z-10 mx-8 rounded-xl bg-white p-8 text-center text-3xl font-black leading-snug shadow-[0_25px_25px_rgba(0,0,0,0.15)]">
-          برنامج LOUGHA PLUS لستة أشهر
+          مسار LOUGHA PLUS — 6 أشهر للنتيجة
         </div>
         <ul className="relative z-10 mx-auto mt-6 max-w-lg">
           {programItems.map((item) => (
@@ -336,15 +336,15 @@ export function SixMoisLanding() {
 
       {/* Why us intro — matches mockup */}
       <section className="relative px-4 py-10 text-center">
-        <h2 className="text-2xl font-black leading-relaxed">نقدم لكم برامج وأجواء خاصة للتعلم</h2>
+        <h2 className="text-2xl font-black leading-relaxed">علاش الآلاف كايختارو LOUGHA PLUS؟</h2>
         <div className="relative mx-auto mt-8 max-w-sm rounded-2xl bg-white p-6 shadow-[0_8px_30px_rgba(0,0,0,0.12)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`${A}/forase_why_us.v2.webp`}
-            alt="لماذا نحن؟"
+            alt="لماذا LOUGHA PLUS؟"
             className="mx-auto w-48"
           />
-          <p className="mt-4 text-2xl font-black">لماذا نحن؟</p>
+          <p className="mt-4 text-2xl font-black">لماذا LOUGHA PLUS؟</p>
         </div>
       </section>
 
@@ -377,7 +377,7 @@ export function SixMoisLanding() {
       <PriceBeside />
       <div className="px-4 pb-2 text-center">
         <a href="#form-bottom" className="inline-block w-full max-w-md rounded-lg bg-[#0B1D6B] px-8 py-4 text-xl font-black text-white shadow-lg">
-          إحجز مقعدك الآن
+          احجز مقعدك الآن
         </a>
       </div>
       <RegisterForm id="form-bottom" />
@@ -392,7 +392,7 @@ export function SixMoisLanding() {
           href="#form"
           className="cta-sticky pointer-events-auto flex h-14 w-full max-w-[430px] items-center justify-center rounded-xl bg-[#E50000] text-lg font-black text-white shadow-[0_10px_28px_rgba(229,0,0,0.35)]"
         >
-          إشترك الآن
+          إشترك دابا
         </a>
       </div>
 
