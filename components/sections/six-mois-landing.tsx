@@ -278,9 +278,16 @@ export function SixMoisLanding() {
             إشترك الآن
           </a>
         </div>
-        <div className="relative w-full max-w-lg translate-y-2.5">
+        <div className="relative mx-auto w-full max-w-lg translate-y-2.5 px-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${A}/hero-model.v2.webp`} alt="LOUGHA PLUS" className="w-full" id="hero-model" />
+          <img
+            src={`${A}/hero-model.v2.webp?v=kommodo-v2`}
+            alt="LOUGHA PLUS"
+            id="hero-model"
+            width={430}
+            height={458}
+            className="mx-auto block h-auto w-full max-w-[430px] object-contain"
+          />
         </div>
       </section>
 
